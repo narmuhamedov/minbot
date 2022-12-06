@@ -24,7 +24,7 @@ async def fsm_start(message: types.Message):
         await message.reply('Радомир отправь мне фото')
 
 
-async def load_photo(message: types.Message, state:FSMContext):
+async def load_photo(message: types.Message, state: FSMContext):
     if message.from_user.id == ADMIN_ID:
         async with state.proxy() as data:
             data['photo'] = message.photo[0].file_id

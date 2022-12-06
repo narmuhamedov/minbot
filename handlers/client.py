@@ -3,7 +3,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 
 import keyboard.keyboard
 from bot_instance import dp, bot
-
+from parser import tv_show
 
 #приветствие бота по нашему никнейму
 async def hello(message: types.Message):
@@ -49,8 +49,14 @@ async def task_1(message: types.Message):
 
     )
 
+async def parser_manas_film(message: types.Message):
+    data = tv_show.parser()
+    for i in data:
+        await bot.send_message(message.chat.id, i)
+
 #Регистрируем наши функции
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(hello, commands=['start'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(task_1, commands=['tasks'])
+    dp.register_message_handler(parser_manas_film, commands=['parser'])
