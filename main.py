@@ -2,7 +2,7 @@ from aiogram import executor
 from bot_instance import dp
 from handlers import client, callback, extra
 from handlers import fsmadmin
-
+#ddsdsd
 
 #Передаем клиента и связываем 2 файла
 fsmadmin.register_handler_fsmadmin(dp)
